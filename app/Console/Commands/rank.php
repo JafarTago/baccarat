@@ -41,6 +41,7 @@ class rank extends Command
      */
     public function handle()
     {
+
         $rank = $this->ask('What is your target rank?');
         if (is_null($rank)) {
             $rank = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];

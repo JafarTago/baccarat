@@ -13,7 +13,7 @@ class a extends Command
      *
      * @var string
      */
-    protected $signature = 'a';
+    protected $signature = 'a {dataOfNumber?}';
 
     /**
      * The console command description.
@@ -39,7 +39,7 @@ class a extends Command
      */
     public function handle()
     {
-        $getDataNumber = 60;
+        $getDataNumber = is_null($this->argument('dataOfNumber')) ? 30 : $this->argument('dataOfNumber');
         $offset        = app(Period::class)->count() - $getDataNumber;
         $datas         = app(Period::class)->offset($offset)->limit($getDataNumber)->orderBy('period')->get()->toArray();
 
