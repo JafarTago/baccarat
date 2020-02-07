@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Http\UpdateService;
 use App\Period;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Helper\Table;
@@ -41,6 +42,7 @@ class rank extends Command
      */
     public function handle()
     {
+        $this->line(app(UpdateService::class)->updateLottery());
 
         $rank = $this->ask('What is your target rank?');
         if (is_null($rank)) {

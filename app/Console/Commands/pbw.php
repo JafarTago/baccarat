@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Http\UpdateService;
 use App\Period;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Helper\Table;
@@ -39,6 +40,8 @@ class pbw extends Command
      */
     public function handle()
     {
+        $this->line(app(UpdateService::class)->updateLottery());
+
         $targetNumber = $this->ask('What is your target number?');
         if (is_null($targetNumber)) {
             $targetNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];

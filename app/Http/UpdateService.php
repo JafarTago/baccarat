@@ -18,7 +18,7 @@ class UpdateService
         $period  = $data->openedPeriodNumber;
         $numbers = $data->numbersArray;
         if (empty($numbers)) {
-            echo $period . " 未開獎\n";
+            return "$period 未開獎";
         } else {
             $saveData['period'] = $period;
             $saveData['one']    = str_split($numbers[0])[count(str_split($numbers[0])) - 1];
@@ -32,7 +32,7 @@ class UpdateService
             $saveData['nine']   = str_split($numbers[8])[count(str_split($numbers[8])) - 1];
             $saveData['ten']    = str_split($numbers[9])[count(str_split($numbers[9])) - 1];
             app(Period::class)->updateOrCreate($saveData);
-            echo "success\n";
+            return "success";
         }
     }
 }

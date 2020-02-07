@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Http\UpdateService;
 use App\Period;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Helper\Table;
@@ -39,6 +40,8 @@ class three extends Command
      */
     public function handle()
     {
+        $this->line(app(UpdateService::class)->updateLottery());
+
         $getDataNumber = 200;
         $offset        = app(Period::class)->count() - $getDataNumber;
         $datas         = app(Period::class)->offset($offset)->limit($getDataNumber)->orderBy('period')->get()->toArray();

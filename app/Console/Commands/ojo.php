@@ -30,7 +30,7 @@ class ojo extends Command
      */
     public function __construct()
     {
-        app(UpdateService::class)->updateLottery();
+
         parent::__construct();
     }
 
@@ -41,6 +41,8 @@ class ojo extends Command
      */
     public function handle()
     {
+        $this->line(app(UpdateService::class)->updateLottery());
+
         $targetNumber = $this->ask('What is your target number?');
 
         if (is_null($targetNumber)) {
@@ -118,9 +120,4 @@ class ojo extends Command
         return $word;
     }
 }
-
-//第一名：0,1,2,3,6,8,9 二關
-//期間第三名
-
-
-
+//第七名：0,1,2,3,4,8,9
