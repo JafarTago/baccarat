@@ -43,13 +43,14 @@ class ojo extends Command
     {
         $this->line(app(UpdateService::class)->updateLottery());
 
-        $targetNumber = $this->ask('What is your target number?');
+        $designatedNumber = $this->ask('請輸入指定號碼');
+//        $trackNumber = $this->ask('請輸入追號號碼');
 
-        if (is_null($targetNumber)) {
-            $targetNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-            $targetNumber = array_rand($targetNumber, 7);
+        if (is_null($designatedNumber)) {
+            $designatedNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+            $designatedNumber = array_rand($designatedNumber, 7);
         } else {
-            $targetNumber = explode(',', $targetNumber);
+            $designatedNumber = explode(',', $designatedNumber);
         }
 
         $getDataNumber = is_null($this->argument('dataOfNumber')) ? 30 : $this->argument('dataOfNumber');
@@ -59,18 +60,56 @@ class ojo extends Command
         foreach ($datas as $key => $data) {
 
             $word = $data['period'] . '   ';
-            foreach ($data as $key => $number) {
+            // 固定法、區間法、期數法
+            foreach ($data as $okey => $number) {
 
-                if ($key == 'id' || $key == 'period' || $key == 'schedule_time') {  //這三個欄位不要判斷，和中獎無關係
+                if ($okey == 'id' || $okey == 'period' || $okey == 'schedule_time') {  //這三個欄位不要判斷，和中獎無關係
                     continue;
                 }
 
-                if (in_array($number, $targetNumber)) {
+                if (in_array($number, $designatedNumber)) {
                     $word .= '<fg=red;bg=yellow> ' . $number . ' </>';
                 } else {
                     $word .= ' ' . $number . ' ';
                 }
             }
+
+            $word = $this->compartment($word);
+
+            // 大小單雙
+            if ($key == 0) {  // 紀錄上一期的數字，用來判斷下一期是否在規則內
+                $previousNumber[1] = $data['one'];
+                $previousNumber[2] = $data['two'];
+                $previousNumber[3] = $data['three'];
+                $previousNumber[4] = $data['four'];
+                $previousNumber[5] = $data['five'];
+                $previousNumber[6] = $data['six'];
+                $previousNumber[7] = $data['seven'];
+                $previousNumber[8] = $data['eight'];
+                $previousNumber[9] = $data['nine'];
+                $previousNumber[0] = $data['ten'];
+            }
+            $word .= $this->bssd($data['one'], $previousNumber[1]);
+            $word .= $this->bssd($data['two'], $previousNumber[2]);
+            $word .= $this->bssd($data['three'], $previousNumber[3]);
+            $word .= $this->bssd($data['four'], $previousNumber[4]);
+            $word .= $this->bssd($data['five'], $previousNumber[5]);
+            $word .= $this->bssd($data['six'], $previousNumber[6]);
+            $word .= $this->bssd($data['seven'], $previousNumber[7]);
+            $word .= $this->bssd($data['eight'], $previousNumber[8]);
+            $word .= $this->bssd($data['nine'], $previousNumber[9]);
+            $word .= $this->bssd($data['ten'], $previousNumber[0]);
+
+            $previousNumber[1] = $data['one'];
+            $previousNumber[2] = $data['two'];
+            $previousNumber[3] = $data['three'];
+            $previousNumber[4] = $data['four'];
+            $previousNumber[5] = $data['five'];
+            $previousNumber[6] = $data['six'];
+            $previousNumber[7] = $data['seven'];
+            $previousNumber[8] = $data['eight'];
+            $previousNumber[9] = $data['nine'];
+            $previousNumber[0] = $data['ten'];
 
             $group[1][$data['one']]   = $data['one'];
             $group[2][$data['two']]   = $data['two'];
@@ -83,6 +122,7 @@ class ojo extends Command
             $group[9][$data['nine']]  = $data['nine'];
             $group[10][$data['ten']]  = $data['ten'];
 
+            $word = $this->compartment($word);
 
             $this->line($word);
         }
@@ -90,11 +130,11 @@ class ojo extends Command
             ksort($group[$key]);
         }
 
-        $this->line('       名次   ' . ' 1  2  3  4  5  6  7  8  9  0');
-        $this->line("\n選取號碼：" . implode(",", $targetNumber));
+        $this->line('       名次    1  2  3  4  5  6  7  8  9  0        1  2  3  4  5  6  7  8  9  0');
+        $this->line("\n選取號碼：" . implode(",", $designatedNumber));
 
         $this->line("\n熱碼整理");
-        $this->line('流水號：1,2,3,4,5,6,7');
+        $this->line('流水號：1 2 3 4 5 6 7');
         $this->line($this->hotNumber($group[1], '第一名'));
         $this->line($this->hotNumber($group[2], '第二名'));
         $this->line($this->hotNumber($group[3], '第三名'));
@@ -111,13 +151,54 @@ class ojo extends Command
     public function hotNumber($data, $rank)
     {
         $word = $rank . '：';
-        foreach ($data as $v) {
+        foreach ($data as $key => $v) {
+//            if ($key > 7) {
+//                $word .= '<fg=red;bg=yellow> '. $v .'</>';
+//            } else {
+//                $word .= "<fg=red;bg=yellow> $v </> ";
             $word .= "$v,";
+//            }
+
         }
 
-        $word = substr($word,0,-1); // 最後一個逗點移除
+        $word = substr($word, 0, -1); // 最後一個逗點移除
 
         return $word;
     }
+
+
+    /**
+     * 大小單雙判斷
+     */
+    public function bssd($targetNumber, $previousNumber)
+    {
+        switch ($previousNumber) {
+            case 1:
+                return in_array($targetNumber, [1, 2, 3, 4, 5, 7, 9]) ? "<fg=red;bg=yellow> $targetNumber </>" : " $targetNumber ";
+            case 2:
+                return in_array($targetNumber, [1, 2, 3, 4, 5, 6, 8, 0]) ? "<fg=red;bg=yellow> $targetNumber </>" : " $targetNumber ";
+            case 3:
+                return in_array($targetNumber, [1, 2, 3, 4, 5, 7, 9]) ? "<fg=red;bg=yellow> $targetNumber </>" : " $targetNumber ";
+            case 4:
+                return in_array($targetNumber, [1, 2, 3, 4, 5, 6, 8, 0]) ? "<fg=red;bg=yellow> $targetNumber </>" : " $targetNumber ";
+            case 5:
+                return in_array($targetNumber, [1, 2, 3, 4, 5, 7, 9]) ? "<fg=red;bg=yellow> $targetNumber </>" : " $targetNumber ";
+            case 6:
+                return in_array($targetNumber, [2, 4, 6, 7, 8, 9, 0]) ? "<fg=red;bg=yellow> $targetNumber </>" : " $targetNumber ";
+            case 7:
+                return in_array($targetNumber, [1, 3, 5, 6, 7, 8, 9, 0]) ? "<fg=red;bg=yellow> $targetNumber </>" : " $targetNumber ";
+            case 8:
+                return in_array($targetNumber, [2, 4, 6, 7, 8, 9, 0]) ? "<fg=red;bg=yellow> $targetNumber </>" : " $targetNumber ";
+            case 9:
+                return in_array($targetNumber, [1, 3, 5, 6, 7, 8, 9, 0]) ? "<fg=red;bg=yellow> $targetNumber </>" : " $targetNumber ";
+            case 0:
+                return in_array($targetNumber, [2, 4, 6, 7, 8, 9, 0]) ? "<fg=red;bg=yellow> $targetNumber </>" : " $targetNumber ";
+        }
+    }
+
+    public function compartment($word)
+    {
+        return $word . '  ||  ';
+    }
 }
-//第七名：0,1,2,3,4,8,9
+//第1名：0,1,3,4,5,7,9

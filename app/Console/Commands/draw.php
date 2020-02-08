@@ -57,5 +57,8 @@ class draw extends Command
         if ($target = $this->argument('target')) {
             $this->line("       瞄準 $target");
         }
+
+        $this->line('');
     }
 }
+

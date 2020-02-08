@@ -14,7 +14,7 @@ class rank extends Command
      *
      * @var string
      */
-    protected $signature = 'r';
+    protected $signature = 'rank {rank?}';
 
     /**
      * The console command description.
@@ -44,11 +44,7 @@ class rank extends Command
     {
         $this->line(app(UpdateService::class)->updateLottery());
 
-        $rank = $this->ask('What is your target rank?');
-        if (is_null($rank)) {
-            $rank = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-            $rank = array_rand($rank, 1);
-        }
+        $rank = $this->argument('rank');
 
         $getDataNumber = 30;
         $initMoney     = 0;
