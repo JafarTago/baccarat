@@ -30,7 +30,6 @@ class ojo extends Command
      */
     public function __construct()
     {
-
         parent::__construct();
     }
 
@@ -44,7 +43,6 @@ class ojo extends Command
         $this->line(app(UpdateService::class)->updateLottery());
 
         $designatedNumber = $this->ask('請輸入指定號碼');
-//        $trackNumber = $this->ask('請輸入追號號碼');
 
         if (is_null($designatedNumber)) {
             $designatedNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
@@ -53,27 +51,61 @@ class ojo extends Command
             $designatedNumber = explode(',', $designatedNumber);
         }
 
-        $getDataNumber = is_null($this->argument('dataOfNumber')) ? 30 : $this->argument('dataOfNumber');
+        $number17 = [1, 2, 3, 4, 5, 6, 7];
+        $number28 = [2, 3, 4, 5, 6, 7, 8];
+        $number39 = [3, 4, 5, 6, 7, 8, 9];
+        $number40 = [4, 5, 6, 7, 8, 9, 0];
+        $number51 = [5, 6, 7, 8, 9, 0, 1];
+        $number62 = [6, 7, 8, 9, 0, 1, 2];
+        $number73 = [7, 8, 9, 0, 1, 2, 3];
+        $number84 = [8, 9, 0, 1, 2, 3, 4];
+        $number95 = [9, 0, 1, 2, 3, 4, 5];
+        $number06 = [0, 1, 2, 3, 4, 5, 6];
+
+        $getDataNumber = is_null($this->argument('dataOfNumber')) ? 20 : $this->argument('dataOfNumber');
         $offset        = app(Period::class)->count() - $getDataNumber;
         $datas         = app(Period::class)->offset($offset)->limit($getDataNumber)->orderBy('period')->get()->toArray();
+
+        $this->line('');
+        foreach ($datas as $key => $data) {
+            $word = $data['period'] . '  ';
+            $word = $this->printNumber($data, $number17, $word);
+            $word = $this->compartment($word);
+            $word = $this->printNumber($data, $number28,$word);
+            $word = $this->compartment($word);
+            $word = $this->printNumber($data, $number39,$word);
+            $word = $this->compartment($word);
+            $word = $this->printNumber($data, $number40,$word);
+            $word = $this->compartment($word);
+            $word = $this->printNumber($data, $number51,$word);
+            $this->line($word);
+        }
+
+        $this->line('       名次   1  2  3  4  5  6  7  8  9  0        1  2  3  4  5  6  7  8  9  0        1  2  3  4  5  6  7  8  9  0        1  2  3  4  5  6  7  8  9  0        1  2  3  4  5  6  7  8  9  0');
+        $this->line('                        1 ~ 7                               2 ~ 8                               3 ~ 9                               4 ~ 0                               5 ~ 1');
+        $this->line('');
+        foreach ($datas as $key => $data) {
+            $word = $data['period'] . '  ';
+            $word = $this->printNumber($data, $number62, $word);
+            $word = $this->compartment($word);
+            $word = $this->printNumber($data, $number73,$word);
+            $word = $this->compartment($word);
+            $word = $this->printNumber($data, $number84,$word);
+            $word = $this->compartment($word);
+            $word = $this->printNumber($data, $number95,$word);
+            $word = $this->compartment($word);
+            $word = $this->printNumber($data, $number06,$word);
+            $this->line($word);
+        }
+
+        $this->line('       名次   1  2  3  4  5  6  7  8  9  0        1  2  3  4  5  6  7  8  9  0        1  2  3  4  5  6  7  8  9  0        1  2  3  4  5  6  7  8  9  0        1  2  3  4  5  6  7  8  9  0');
+        $this->line('                        6 ~ 2                               7 ~ 3                               8 ~ 4                               9 ~ 5                               0 ~ 6');
+        $this->line('');
 
         foreach ($datas as $key => $data) {
 
             $word = $data['period'] . '   ';
-            // 固定法、區間法、期數法
-            foreach ($data as $okey => $number) {
-
-                if ($okey == 'id' || $okey == 'period' || $okey == 'schedule_time') {  //這三個欄位不要判斷，和中獎無關係
-                    continue;
-                }
-
-                if (in_array($number, $designatedNumber)) {
-                    $word .= '<fg=red;bg=yellow> ' . $number . ' </>';
-                } else {
-                    $word .= ' ' . $number . ' ';
-                }
-            }
-
+            $word = $this->printNumber($data, $designatedNumber, $word);
             $word = $this->compartment($word);
 
             // 大小單雙
@@ -122,8 +154,6 @@ class ojo extends Command
             $group[9][$data['nine']]  = $data['nine'];
             $group[10][$data['ten']]  = $data['ten'];
 
-            $word = $this->compartment($word);
-
             $this->line($word);
         }
         foreach ($group as $key => $g) {
@@ -131,9 +161,9 @@ class ojo extends Command
         }
 
         $this->line('       名次    1  2  3  4  5  6  7  8  9  0        1  2  3  4  5  6  7  8  9  0');
-        $this->line("\n選取號碼：" . implode(",", $designatedNumber));
+        $this->line('                      '.implode(",", $designatedNumber).'                          大小單雙');
 
-        $this->line("\n熱碼整理");
+        $this->line("\n近 $getDataNumber 期熱碼整理");
         $this->line('流水號：1 2 3 4 5 6 7');
         $this->line($this->hotNumber($group[1], '第一名'));
         $this->line($this->hotNumber($group[2], '第二名'));
@@ -145,20 +175,31 @@ class ojo extends Command
         $this->line($this->hotNumber($group[8], '第八名'));
         $this->line($this->hotNumber($group[9], '第九名'));
         $this->line($this->hotNumber($group[10], '第十名'));
+    }
 
+    public function printNumber($data, $targetNumbers, $word)
+    {
+        foreach ($data as $okey => $number) {
+
+            if ($okey == 'id' || $okey == 'period' || $okey == 'schedule_time') {  //這三個欄位不要判斷，和中獎無關係
+                continue;
+            }
+
+            if (in_array($number, $targetNumbers)) {
+                $word .= '<fg=red;bg=yellow> ' . $number . ' </>';
+            } else {
+                $word .= ' ' . $number . ' ';
+            }
+        }
+
+        return $word;
     }
 
     public function hotNumber($data, $rank)
     {
         $word = $rank . '：';
         foreach ($data as $key => $v) {
-//            if ($key > 7) {
-//                $word .= '<fg=red;bg=yellow> '. $v .'</>';
-//            } else {
-//                $word .= "<fg=red;bg=yellow> $v </> ";
             $word .= "$v,";
-//            }
-
         }
 
         $word = substr($word, 0, -1); // 最後一個逗點移除
@@ -202,3 +243,5 @@ class ojo extends Command
     }
 }
 //第1名：0,1,3,4,5,7,9
+
+//區間 247
