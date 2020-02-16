@@ -14,7 +14,7 @@ class rank extends Command
      *
      * @var string
      */
-    protected $signature = 'rank {rank?}';
+    protected $signature = 'rank {rank}';
 
     /**
      * The console command description.
@@ -43,10 +43,8 @@ class rank extends Command
     public function handle()
     {
         $this->line(app(UpdateService::class)->updateLottery());
-
         $rank = $this->argument('rank');
-
-        $getDataNumber = 30;
+        $getDataNumber = 400;
         $initMoney     = 0;
         $payMoney      = 10;
         $odds          = 9.925;

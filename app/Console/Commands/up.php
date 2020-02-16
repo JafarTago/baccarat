@@ -66,7 +66,6 @@ class up extends Command
             foreach ($datas as $key => $data) {
                 if ($key % 2 == 0) {
                     $saveData['period'] = $data;
-
                 } else {
                     $data              = substr($data, 0, -1); // 最後一個逗點移除
                     $numbers           = explode(',', $data);
