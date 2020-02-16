@@ -47,24 +47,17 @@ class uphmx extends Command
             'PHPSESSID' => 'jb49cn9lj774fnb3m9g9d14e67'
         ], 'apigame.fere365.com');
 
-
         $data = [
             'page'          => 1,
             'search_date'   => '2020-02-15',
             'game_category' => 104,
         ];
-//        $data['security'] = $this->getNonce();
-//        $data['action'] = 'nf_ajax_submit';
-//        $data['formData'] = $request->all();
-//        dd($data);
-//        $data = json_encode($data);
-//        dd($data);
-//
-        $url = 'https://apigame.fere365.com/op/game_result_record_op.php?pdisplay=show_game_result_list';
-        $response = $client->post($url, ['cookies' => $cookieJar], ['form_params' => $data]);
+
+        $url      = 'https://apigame.fere365.com/op/game_result_record_op.php?pdisplay=show_game_result_list';
+        $response = $client->post($url, ['form_params' => $data,'cookies' => $cookieJar]);
 
         $body    = $response->getBody(); //獲取響應體，物件
-        $bodyStr = (string) $body; //物件轉字串
+        $bodyStr = (string)$body; //物件轉字串
         dd($bodyStr);
 
     }
