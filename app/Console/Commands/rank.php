@@ -14,7 +14,7 @@ class rank extends Command
      *
      * @var string
      */
-    protected $signature = 'rank {rank}';
+    protected $signature = 'rank {rank?}';
 
     /**
      * The console command description.
@@ -43,26 +43,77 @@ class rank extends Command
     public function handle()
     {
         $this->line(app(UpdateService::class)->updateLottery());
-        $rank = $this->argument('rank');
-        $getDataNumber = 400;
-        $initMoney     = 0;
-        $payMoney      = 10;
-        $odds          = 9.925;
-        $win           = $payMoney * 2.925;
-        $lost          = $payMoney * 7;
-        $checkPoint    = 1;
+        $rank          = $this->argument('rank');
+        $getDataNumber = 5;
         $missNumberOld = [];
         $tag           = null;
         $offset        = app(Period::class)->count() - $getDataNumber;
-        $datas         = app(Period::class)
-            ->offset($offset)->limit($getDataNumber)
-//                ->where('period','like','%20200118%')
-            ->orderBy('period')->get();
-        $observed      = 0;
+        $datas         = app(Period::class)->offset($offset)->limit($getDataNumber)->orderBy('period')->get();
 
 
+//        if (is_null($rank)) {
+//            for ($rank = 1; $rank <= 10; $rank++) {
+//                echo $rank;
+//                $prints = [];
+//                foreach ($datas as $key => $data) {
+//                    $missNumberNew = [];
+//
+//                    $array[0]  = $data->period;
+//                    $array[1]  = $data->one;
+//                    $array[2]  = $data->two;
+//                    $array[3]  = $data->three;
+//                    $array[4]  = $data->four;
+//                    $array[5]  = $data->five;
+//                    $array[6]  = $data->six;
+//                    $array[7]  = $data->seven;
+//                    $array[8]  = $data->eight;
+//                    $array[9]  = $data->nine;
+//                    $array[10] = $data->ten;
+//
+//                    if (is_null($tag)) {
+//                        $tag = $array[$rank];
+//                        continue;
+//                    }
+//
+//
+//                    if (! in_array($array[$rank], $missNumberOld)) {
+//                        $result = '✔';
+//                    } else {
+//                        $result = ' ';
+//                    }
+//
+//                    $tag = str_replace(' ', '', $array[$rank]);
+//                    if ($tag == 0) {
+//                        $tag = 10;
+//                    }
+//
+//                    $missNumberNew[] = $array[$tag];
+//
+//                    $tag++;
+//
+//                    if ($tag > 10) {
+//                        $tag = 1;
+//                    }
+//
+//                    $missNumberNew[] = $array[$tag];
+//
+//                    $tag++;
+//
+//                    if ($tag > 10) {
+//                        $tag = 1;
+//                    }
+//
+//                    $missNumberNew[] = $array[$tag];
+//
+//                    $prints[$key][0] = $data->period;
+//                    $prints[$key][$rank] = $result;
+////                    $this->line("$array[0]期  $result ");
+//                    $missNumberOld = $missNumberNew;
+//                }
+//            }
+//        }
+//dd($prints);
         foreach ($datas as $data) {
-            $result        = ' ';
             $missNumberNew = [];
 
             $array[0]  = $data->period;
@@ -84,28 +135,8 @@ class rank extends Command
 
             if (! in_array($array[$rank], $missNumberOld)) {
                 $result = '✔';
-//                $initMoney += $win;
-                if ($observed) {
-                    $observed = 0;
-                } else {
-                    $initMoney  -= $this->stakeAmountLost($checkPoint); // 先扣掉下注的錢
-                    $initMoney  += $this->stakeAmountWin($checkPoint); // 在加回贏的錢
-                    $checkPoint = 1; //贏了之後回第一關
-                    $observed = 0;
-                }
             } else {
-                if (!$observed) {
-                    $initMoney -= $this->stakeAmountLost($checkPoint);
-                    $checkPoint++;
-                    if ($checkPoint > 3) {
-                        $checkPoint = 1; // 第四關爆掉回第一關
-                    }
-                }
                 $result = ' ';
-                if ($checkPoint > 2) { // 連二關沒過，觀一把
-                    $observed = 1;
-                }
-//                $initMoney -= $lost;
             }
 
             $tag = str_replace(' ', '', $array[$rank]);
@@ -137,10 +168,21 @@ class rank extends Command
             $array[$rank] = "<fg=green>$array[$rank]</>"; // 鎖定名次，方便抓第幾名
 
 
-            $this->line("$array[0]期 <fg=red;> $result </> $array[1]$array[2]$array[3]$array[4]$array[5]$array[6]$array[7]$array[8]$array[9]$array[10] / 關數：$checkPoint / 觀察：$observed / 剩餘本金：$initMoney");
+            $this->line("$array[0]期 <fg=red;> $result </> $array[1]$array[2]$array[3]$array[4]$array[5]$array[6]$array[7]$array[8]$array[9]$array[10]");
             $missNumberOld = $missNumberNew;
         }
         $this->line('                  ' . ' 1  2  3  4  5  6  7  8  9  0');
+    }
+
+    public function isBego($array, $rank, $missNumberOld)
+    {
+        if (! in_array($array[$rank], $missNumberOld)) {
+            $result = '✔';
+        } else {
+            $result = ' ';
+        }
+
+        return $result;
     }
 
     public function stakeAmountWin($checkPoint)
