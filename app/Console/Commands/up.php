@@ -51,7 +51,7 @@ class up extends Command
     public function updateData($date)
     {
 
-        for ($page = 1; $page <= 18; $page++) {
+        for ($page = 1; $page <= 3; $page++) {
 
             $url    = 'http://www.luckyairship.com/history.html?issue=&date=' . $date . '&page=' . $page;
             $buffer = file($url);

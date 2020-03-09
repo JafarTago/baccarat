@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f991d0f4-50fd-4b91-a1cf-9705ca32f79a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Airship10.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Console/Commands/notifyAirship10.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Console/Commands/notifyRacing10.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Console/Commands/research.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Console/Commands/upAirship10.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Console/Commands/upRacing10.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Helpers/ResultsHelper.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Helpers/SlackNotify.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Racing10.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/a.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/a.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/ojo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/ojo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/upmancar.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/upmancar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/up.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/up.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +31,7 @@
         <entry file="file://$PROJECT_DIR$/app/Console/Commands/upAirship10.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-612">
-              <caret line="35" column="30" lean-forward="true" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+              <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
               <folding>
                 <element signature="e#40#55#0#PHP" expanded="true" />
               </folding>
@@ -56,7 +43,7 @@
         <entry file="file://$PROJECT_DIR$/app/Console/Commands/notifyRacing10.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="375">
-              <caret line="25" column="18" lean-forward="true" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+              <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
               <folding>
                 <element signature="e#40#68#0#PHP" expanded="true" />
               </folding>
@@ -68,7 +55,7 @@
         <entry file="file://$PROJECT_DIR$/app/Console/Commands/notifyAirship10.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="7980">
-              <caret line="532" column="13" lean-forward="true" selection-start-line="532" selection-start-column="13" selection-end-line="532" selection-end-column="13" />
+              <caret line="532" column="13" selection-start-line="532" selection-start-column="13" selection-end-line="532" selection-end-column="13" />
               <folding>
                 <element signature="e#40#58#0#PHP" expanded="true" />
               </folding>
@@ -88,8 +75,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Console/Commands/up.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-88">
-              <caret line="19" column="6" lean-forward="true" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+            <state relative-caret-position="361">
+              <caret line="62" column="41" lean-forward="true" selection-start-line="62" selection-start-column="41" selection-end-line="62" selection-end-column="41" />
               <folding>
                 <element signature="e#40#55#0#PHP" expanded="true" />
               </folding>
@@ -147,7 +134,6 @@
         <option value="$PROJECT_DIR$/app/Console/Commands/ojov.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/fv.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/rankall.php" />
-        <option value="$PROJECT_DIR$/app/Console/Commands/up.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/rank.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/uphmx.php" />
         <option value="$PROJECT_DIR$/app/PeriodManCar.php" />
@@ -165,6 +151,7 @@
         <option value="$PROJECT_DIR$/app/Console/Commands/upAirship10.php" />
         <option value="$PROJECT_DIR$/app/Airship10.php" />
         <option value="$PROJECT_DIR$/app/Console/Commands/notifyAirship10.php" />
+        <option value="$PROJECT_DIR$/app/Console/Commands/up.php" />
       </list>
     </option>
   </component>
@@ -423,12 +410,12 @@
       <workItem from="1582688103940" duration="3829000" />
       <workItem from="1582804950665" duration="666000" />
       <workItem from="1583129563504" duration="267000" />
-      <workItem from="1583220901432" duration="33565000" />
+      <workItem from="1583220901432" duration="33859000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="458181000" />
+    <option name="totallyTimeSpent" value="458475000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -691,7 +678,7 @@
     <entry file="file://$PROJECT_DIR$/app/Console/Commands/notifyRacing10.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
-          <caret line="25" column="18" lean-forward="true" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+          <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
           <folding>
             <element signature="e#40#68#0#PHP" expanded="true" />
           </folding>
@@ -701,7 +688,7 @@
     <entry file="file://$PROJECT_DIR$/app/Console/Commands/upAirship10.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-612">
-          <caret line="35" column="30" lean-forward="true" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+          <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
           <folding>
             <element signature="e#40#55#0#PHP" expanded="true" />
           </folding>
@@ -711,7 +698,7 @@
     <entry file="file://$PROJECT_DIR$/app/Console/Commands/notifyAirship10.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7980">
-          <caret line="532" column="13" lean-forward="true" selection-start-line="532" selection-start-column="13" selection-end-line="532" selection-end-column="13" />
+          <caret line="532" column="13" selection-start-line="532" selection-start-column="13" selection-end-line="532" selection-end-column="13" />
           <folding>
             <element signature="e#40#58#0#PHP" expanded="true" />
           </folding>
@@ -720,8 +707,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Console/Commands/up.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-88">
-          <caret line="19" column="6" lean-forward="true" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+        <state relative-caret-position="361">
+          <caret line="62" column="41" lean-forward="true" selection-start-line="62" selection-start-column="41" selection-end-line="62" selection-end-column="41" />
           <folding>
             <element signature="e#40#55#0#PHP" expanded="true" />
           </folding>
