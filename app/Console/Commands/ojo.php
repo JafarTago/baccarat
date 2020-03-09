@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Http\UpdateService;
 use App\Period;
+//use App\PeriodManCar as Period;
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Helper\Table;
 

@@ -46,11 +46,11 @@ class upmancar extends Command
 
         for ($i = 0; $i < 10; $i++) {
 
-            $cookieJar = CookieJar::fromArray(['PHPSESSID' => 'jb49cn9lj774fnb3m9g9d14e67'], 'apigame.fere365.com');
+            $cookieJar = CookieJar::fromArray(['PHPSESSID' => 'n94oj5icde2k7jj9u0gkhf2mv3'], 'apigame.fere365.com');
 
             $data = [
                 'page'          => 1,
-                'search_date'   => '2020-02-20',
+                'search_date'   => '2020-02-28',
                 'game_category' => 104,
             ];
 
@@ -206,7 +206,7 @@ class upmancar extends Command
             $this->line($this->hotNumber($group[10], '第十名'));
             $group = [];
             $i--;
-            sleep(10);
+            sleep(5);
         }
 
     }
