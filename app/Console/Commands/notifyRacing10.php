@@ -44,7 +44,7 @@ class notifyRacing10 extends Command
      */
     public function handle()
     {
-        $targetNumber = 9;
+        $targetNumber = 13;
         for ($i = 0; $i < 10; $i++) {
 
             $time = is_null($this->argument('time')) ? date('Y-m-d') : $this->argument('time');

@@ -55,6 +55,7 @@ class up extends Command
 
             $url    = 'http://www.luckyairship.com/history.html?issue=&date=' . $date . '&page=' . $page;
             $buffer = file($url);
+
             for ($i = 0; $i < sizeof($buffer); $i++) {
                 $n1 = strpos(" " . $buffer[$i], "<td>"); //檢查你要找的字,是否存在,假設我想找<title>中的內容為何,為什麼前面要加空白,因為如果找到位置如果是第一個位置是0,0跟找不到在判斷會有問題
                 if ($n1 > 0) {

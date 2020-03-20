@@ -65,7 +65,10 @@ class ojo extends Command
 
         $getDataNumber = is_null($this->argument('dataOfNumber')) ? 20 : $this->argument('dataOfNumber');
         $offset        = app(Period::class)->count() - $getDataNumber;
-        $datas         = app(Period::class)->offset($offset)->limit($getDataNumber)->orderBy('period')->get()->toArray();
+        $datas         = app(Period::class)
+            ->offset($offset)->limit($getDataNumber)
+//            ->where('period', 'like', '%20200312%')
+            ->orderBy('period')->get()->toArray();
 
         $this->line('');
         foreach ($datas as $key => $data) {
