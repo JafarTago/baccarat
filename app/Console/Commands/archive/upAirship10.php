@@ -24,7 +24,7 @@ class upAirship10 extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = '更新期數';
 
     /**
      * Create a new command instance.
@@ -43,21 +43,15 @@ class upAirship10 extends Command
      */
     public function handle()
     {
-
         $client = new Client();
 
         $time = date('Y-m-d');
-//        for ($i = 1; $i < 65; $i++) {
-//            $time = date('Y-m-d', strtotime($time . ' +1 day'));
-
 
         $postData = [
             'form_params' => [
                 'gameid'    => 202,
                 'matchdate' => $time
             ]];
-
-//        dd($postData);
 
         if ($this->argument('status') == 'n') {
             $url = 'https://www.onlinelottery.com.ph/papi/ltcur';
@@ -79,13 +73,13 @@ class upAirship10 extends Command
 
             $body = $response->getBody();
             $body = json_decode($body)->gamedata;
-//dd($body);
+
             foreach ($body as $data) {
                 $this->update($data);
             }
             $this->line($time);
         }
-//        }
+
     }
 
     public function update($data)

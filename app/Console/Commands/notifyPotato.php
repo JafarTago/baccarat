@@ -51,130 +51,167 @@ class notifyPotato extends Command
 
     public function go()
     {
-        for ($i = 1; $i < 100; $i++) {
+        $六關 = 6;
 
-            $this->ala(67);
-            $this->ala(68);
-            $this->ala(139);
-            $this->ala(140);
-            $this->ala(211);
-            $this->ala(212);
-            $this->ala(283);
-            $this->ala(284);
-            $this->ala(355);
-            $this->ala(356);
-            $this->ala(427);
-            $this->ala(428);
-            $this->ala(499);
-            $this->ala(500);
-            $this->ala(571);
-            $this->ala(572);
-            $this->ala(643);
-            $this->ala(644);
-            $this->ala(715);
-            $this->ala(716);
-//
-//            $this->ala(69);
-//            $this->ala(70);
-//            $this->ala(141);
-//            $this->ala(142);
-//            $this->ala(213);
-//            $this->ala(214);
-//            $this->ala(285);
-//            $this->ala(286);
-//            $this->ala(357);
-//            $this->ala(358);
-//            $this->ala(429);
-//            $this->ala(430);
-//            $this->ala(501);
-//            $this->ala(502);
-//            $this->ala(573);
-//            $this->ala(574);
-//            $this->ala(645);
-//            $this->ala(646);
-//            $this->ala(717);
-//            $this->ala(718);
-//
-//
-//
-//            $this->ala(71);
-//            $this->ala(72);
-//            $this->ala(143);
-//            $this->ala(142);
-//            $this->ala(215);
-//            $this->ala(216);
-//            $this->ala(287);
-//            $this->ala(288);
-//            $this->ala(359);
-//            $this->ala(360);
-//            $this->ala(431);
-//            $this->ala(432);
-//            $this->ala(503);
-//            $this->ala(504);
-//            $this->ala(575);
-//            $this->ala(576);
-//            $this->ala(647);
-//            $this->ala(648);
-//            $this->ala(719);
-//            $this->ala(720);
-            $i--;
+        for ($i = 1; $i < 100; $i++) {
+            try {
+                //龍虎
+                $this->ala('8', 120);
+                
+                $this->ala('animal', 534);
+                $this->ala('animal', 528);
+                $this->ala('animal', 540);
+                $this->ala('animal', 522);
+                $this->ala('animal', 516);
+                $this->ala('animal', 510);
+                $this->ala('animal', 504);
+                $this->ala('animal', 498);
+                $this->ala('animal', 492);
+                $this->ala('animal', 486);
+
+                //單雙
+                $this->ala('SD', 480);
+                $this->ala('SD', 474);
+                $this->ala('SD', 462);
+                $this->ala('SD', 468);
+                $this->ala('SD', 456);
+                $this->ala('SD', 450);
+                $this->ala('SD', 444);
+                $this->ala('SD', 438);
+                $this->ala('SD', 432);
+                $this->ala('SD', 426);
+                
+                //大小
+                $this->ala('BS', 396);
+                $this->ala('BS', 414);
+                $this->ala('BS', 420);
+                $this->ala('BS', 408);
+                $this->ala('BS', 402);
+                $this->ala('BS', 390);
+                $this->ala('BS', 384);
+                $this->ala('BS', 378);
+                $this->ala('BS', 372);
+                $this->ala('BS', 366);
+
+                //三碼
+                $this->ala('3', 175);
+                $this->ala('3', 169);
+                $this->ala('3', 295);
+                $this->ala('3', 349);
+                $this->ala('3', 229);
+                $this->ala('3', 109);
+                $this->ala('3', 289);
+                $this->ala('3', 355);
+                $this->ala('3', 235);
+                $this->ala('3', 115);
+
+                //四碼
+                $this->ala('4', 170);
+                $this->ala('4', 350);
+                $this->ala('4', 110);
+                $this->ala('4', 236);
+                $this->ala('4', 296);
+                $this->ala('4', 176);
+                $this->ala('4', 230);
+                $this->ala('4', 290);
+                $this->ala('4', 356);
+                $this->ala('4', 116);
+
+                //五碼
+                $this->ala('5', 291);
+                $this->ala('5', 237);
+                $this->ala('5', 177);
+                $this->ala('5', 357);
+                $this->ala('5', 231);
+                $this->ala('5', 351);
+                $this->ala('5', 297);
+                $this->ala('5', 171);
+                $this->ala('5', 117);
+                $this->ala('5', 111);
+
+                //六碼
+                $this->ala('6', 118);
+                $this->ala('6', 172);
+                $this->ala('6', 178);
+                $this->ala('6', 232);
+                $this->ala('6', 238);
+                $this->ala('6', 292);
+                $this->ala('6', 298);
+                $this->ala('6', 352);
+                $this->ala('6', 358);
+                $this->ala('6', 112);
+
+                //七碼
+                $this->ala('7', 359);
+                $this->ala('7', 353);
+                $this->ala('7', 299);
+                $this->ala('7', 293);
+                $this->ala('7', 239);
+                $this->ala('7', 233);
+                $this->ala('7', 179);
+                $this->ala('7', 173);
+                $this->ala('7', 119);
+                $this->ala('7', 113);
+
+                //八碼
+                $this->ala('8', 114);
+                $this->ala('8', 120);
+                $this->ala('8', 174);
+                $this->ala('8', 180);
+                $this->ala('8', 234);
+                $this->ala('8', 240);
+                $this->ala('8', 294);
+                $this->ala('8', 300);
+                $this->ala('8', 354);
+                $this->ala('8', 360);
+
+                $this->info('----------------------');
+                
+                sleep(30);
+                $i--;
+            } catch (\Exception $error) {
+                dd($error);
+                app(SlackNotify::class)->setMsg('error')->notify();
+            }
         }
     }
 
-    public function ala($id)
+    public function ala($type, $id)
     {
-        try {
-            $url    = 'http://www.61xyft.com/plan-info?id=' . $id;
-            $buffer = file($url);
-            for ($i = 0; $i < sizeof($buffer); $i++) {
-                $n1 = strpos(" " . $buffer[$i], '<span class="m-ww">');
-                if ($n1 > 0) {
-                    $buffer[$i] = str_replace('<div class="l1-4"><span class="m-ww">', '', $buffer[$i]);
-                    $buffer[$i] = str_replace('</span></div>', '', $buffer[$i]);
-                    $buffer[$i] = str_replace("\t\t  ", '', $buffer[$i]);
-                    $status     = str_replace("\r\n", '', $buffer[$i]);
-                }
+        $url    = 'http://www.97xyft.com/plan/?id=' . $id;
+        $buffer = file($url);
+        
+        $x = null;
+        foreach ($buffer as $v) {
+            $x .= $v;
+        }
 
-                $n1 = strpos(" " . $buffer[$i], '<span class="mjh-new">');
-                if ($n1 > 0) {
-                    $buffer[$i] = str_replace('<div class="l1-2"><span class="mjh-new">', '', $buffer[$i]);
-                    $buffer[$i] = str_replace('<span class=\'mjh-ge\'>, </span>', ',', $buffer[$i]);
-                    $buffer[$i] = str_replace('</span></div>', '', $buffer[$i]);
-                    $buffer[$i] = str_replace("\t\t  ", '', $buffer[$i]);
-                    $number     = str_replace("\r\n", '', $buffer[$i]);
-                }
+        $x = explode('<div class="jh1-a">', $x)[1];
+        $c = explode('<div class="jh2-b1">', $x)[1];
+        $c = explode("<span class='jh-line-f'>,</span> ", $c);
+        $c[count($c)-1] = str_replace("\r\n","",$c[count($c)-1]);
+        $c[count($c)-1] = str_replace(" ","",$c[count($c)-1]);
+        $c[count($c)-1] = str_replace('</div></div></div></div><divclass="jh-list"><divclass="jh-info"><divclass="jh1">',"",$c[count($c)-1]);
+        
+        $period = explode("期&nbsp;&nbsp;&nbsp;&nbsp;<span class='jh-ww-f'>",$x)[0];
+        $limit = substr(explode("期&nbsp;&nbsp;&nbsp;&nbsp;<span class='jh-ww-f'>",$x)[1], 0,7);
+        
+        $number = null;
+        foreach ($c as $v) {
+            $number .= $v . ', ';
+        }
 
-                $n1 = strpos(" " . $buffer[$i], '<span class="mjh-new-f">');
-                if ($n1 > 0) {
-                    $buffer[$i] = str_replace("\t      <div class=\"l1-1\"><span class=\"mjh-new-f\">", '', $buffer[$i]);
-                    $period     = str_replace("</span></div>\r\n", '', $buffer[$i]);
-
-                }
-
-                $n1 = strpos(" " . $buffer[$i], '<div class="aa1 on">');
-                if ($n1 > 0) {
-                    $buffer[$i] = str_replace("     <a href=\"../plan/jh" . $id . ".html\"><div class=\"aa1 on\">", '', $buffer[$i]);
-                    $buffer[$i] = str_replace("&nbsp;&nbsp;<b>", ' (', $buffer[$i]);
-                    $name       = str_replace("</b></div></a>\r\n", ')', $buffer[$i]);
-
-
-                }
-
-                $n1 = strpos(" " . $buffer[$i], '<div class="jh-t2">');
-                if ($n1 > 0) {
-                    $buffer[$i] = str_replace("\t <div class=\"jh-t2\">", '', $buffer[$i]);
-                    $buffer[$i] = str_replace("</div>\r\n", '', $buffer[$i]);
-                    $rank       = str_replace("定胆&nbsp;-&nbsp;", ' ', $buffer[$i]);
-                }
-            }
-
-            if ($status == '等6') {
-                $this->notifySlack($rank . ' - ' . $name . ' - ' . $period . ' - ' . $number . ' - ' . $status);
-            }
-
-            $this->line($rank . ' - ' . $name . ' - ' . $period . ' - ' . $number . ' - ' . $status);
-        } catch (\Exception $error) {
-            app(SlackNotify::class)->setMsg('error')->notify();
+        switch ($limit) {
+            case '第4期':
+                $this->info("{$id} - {$type} - {$period} - {$limit} - {$number}");
+                break;
+            case '第5期':
+                $this->info("{$id} - {$type} - {$period} - {$limit} - {$number}");
+                break;
+            case '第6期':
+                $this->info("{$id} - {$type} - {$period} - {$limit} - {$number}");
+                $this->notifySlack("http://www.61xyft.com/plan/jh{$id}.html {$type} - {$period} - {$limit} - {$number}");
+                break;
         }
     }
 

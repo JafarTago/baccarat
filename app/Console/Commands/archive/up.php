@@ -72,6 +72,7 @@ class up extends Command
                         $datas[] = $title;
 
                     }
+                    dd($datas);
                 }
             }
 

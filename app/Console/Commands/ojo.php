@@ -41,17 +41,17 @@ class ojo extends Command
      */
     public function handle()
     {
-        $this->line(app(UpdateService::class)->updateLottery());
-
         $designatedNumber = $this->ask('請輸入指定號碼');
+        // $designatedNumber = null;
 
         if (is_null($designatedNumber)) {
             $designatedNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
             $designatedNumber = array_rand($designatedNumber, 7);
+            
         } else {
             $designatedNumber = explode(',', $designatedNumber);
         }
-
+        
         $number17 = [1, 2, 3, 4, 5, 6, 7];
         $number28 = [2, 3, 4, 5, 6, 7, 8];
         $number39 = [3, 4, 5, 6, 7, 8, 9];
@@ -67,7 +67,6 @@ class ojo extends Command
         $offset        = app(Period::class)->count() - $getDataNumber;
         $datas         = app(Period::class)
             ->offset($offset)->limit($getDataNumber)
-//            ->where('period', 'like', '%20200312%')
             ->orderBy('period')->get()->toArray();
 
         $this->line('');
