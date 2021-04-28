@@ -43,6 +43,17 @@ class upAirship10 extends Command
      */
     public function handle()
     {
+
+        $url = 'http://luckyairyship.com/api/getwiningnumbers?random=0.46040559494045175';
+        $buffer = file($url);
+        $periodData = json_decode($buffer[0]);
+        $number = null;
+        foreach ($periodData->numbersArray as $data) {
+            $number .= $data.', ';
+        }
+
+        $period = $periodData->openingPeriodNumber;
+
         $client = new Client();
 
         $time = date('Y-m-d');

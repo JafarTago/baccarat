@@ -51,123 +51,143 @@ class notifyPotato extends Command
 
     public function go()
     {
-        $六關 = 6;
+
+
+
 
         for ($i = 1; $i < 100; $i++) {
             try {
-                //龍虎
-                $this->ala('8', 120);
-                
-                $this->ala('animal', 534);
-                $this->ala('animal', 528);
-                $this->ala('animal', 540);
-                $this->ala('animal', 522);
-                $this->ala('animal', 516);
-                $this->ala('animal', 510);
-                $this->ala('animal', 504);
-                $this->ala('animal', 498);
-                $this->ala('animal', 492);
-                $this->ala('animal', 486);
+                // //龍虎
+                // $this->ala(534);
+                // $this->ala(528);
+                // $this->ala(540);
+                // $this->ala(522);
+                // $this->ala(516);
+                // $this->ala(510);
+                // $this->ala(504);
+                // $this->ala(498);
+                // $this->ala(492);
+                // $this->ala(486);
 
-                //單雙
-                $this->ala('SD', 480);
-                $this->ala('SD', 474);
-                $this->ala('SD', 462);
-                $this->ala('SD', 468);
-                $this->ala('SD', 456);
-                $this->ala('SD', 450);
-                $this->ala('SD', 444);
-                $this->ala('SD', 438);
-                $this->ala('SD', 432);
-                $this->ala('SD', 426);
+                // //單雙
+                // $this->ala(480);
+                // $this->ala(474);
+                // $this->ala(462);
+                // $this->ala(468);
+                // $this->ala(456);
+                // $this->ala(450);
+                // $this->ala(444);
+                // $this->ala(438);
+                // $this->ala(432);
+                // $this->ala(426);
                 
-                //大小
-                $this->ala('BS', 396);
-                $this->ala('BS', 414);
-                $this->ala('BS', 420);
-                $this->ala('BS', 408);
-                $this->ala('BS', 402);
-                $this->ala('BS', 390);
-                $this->ala('BS', 384);
-                $this->ala('BS', 378);
-                $this->ala('BS', 372);
-                $this->ala('BS', 366);
+                // //大小
+                // $this->ala(396);
+                // $this->ala(414);
+                // $this->ala(420);
+                // $this->ala(408);
+                // $this->ala(402);
+                // $this->ala(390);
+                // $this->ala(384);
+                // $this->ala(378);
+                // $this->ala(372);
+                // $this->ala(366);
 
                 //三碼
-                $this->ala('3', 175);
-                $this->ala('3', 169);
-                $this->ala('3', 295);
-                $this->ala('3', 349);
-                $this->ala('3', 229);
-                $this->ala('3', 109);
-                $this->ala('3', 289);
-                $this->ala('3', 355);
-                $this->ala('3', 235);
-                $this->ala('3', 115);
+                $this->ala(175);
+                $this->ala(169);
+                $this->ala(295);
+                $this->ala(349);
+                $this->ala(229);
+                $this->ala(109);
+                $this->ala(289);
+                $this->ala(355);
+                $this->ala(235);
+                $this->ala(115);
 
                 //四碼
-                $this->ala('4', 170);
-                $this->ala('4', 350);
-                $this->ala('4', 110);
-                $this->ala('4', 236);
-                $this->ala('4', 296);
-                $this->ala('4', 176);
-                $this->ala('4', 230);
-                $this->ala('4', 290);
-                $this->ala('4', 356);
-                $this->ala('4', 116);
+                $this->ala(170);
+                $this->ala(350);
+                $this->ala(110);
+                $this->ala(236);
+                $this->ala(296);
+                $this->ala(176);
+                $this->ala(230);
+                $this->ala(290);
+                $this->ala(356);
+                $this->ala(116);
 
                 //五碼
-                $this->ala('5', 291);
-                $this->ala('5', 237);
-                $this->ala('5', 177);
-                $this->ala('5', 357);
-                $this->ala('5', 231);
-                $this->ala('5', 351);
-                $this->ala('5', 297);
-                $this->ala('5', 171);
-                $this->ala('5', 117);
-                $this->ala('5', 111);
+                $this->ala(291);
+                $this->ala(237);
+                $this->ala(177);
+                $this->ala(357);
+                $this->ala(231);
+                $this->ala(351);
+                $this->ala(297);
+                $this->ala(171);
+                $this->ala(117);
+                $this->ala(111);
 
                 //六碼
-                $this->ala('6', 118);
-                $this->ala('6', 172);
-                $this->ala('6', 178);
-                $this->ala('6', 232);
-                $this->ala('6', 238);
-                $this->ala('6', 292);
-                $this->ala('6', 298);
-                $this->ala('6', 352);
-                $this->ala('6', 358);
-                $this->ala('6', 112);
+                $this->ala(118, true);
+                $this->ala(172, true);
+                $this->ala(178, true);
+                $this->ala(232, true);
+                $this->ala(238, true);
+                $this->ala(292, true);
+                $this->ala(298, true);
+                $this->ala(352, true);
+                $this->ala(358, true);
+                $this->ala(112, true);
 
                 //七碼
-                $this->ala('7', 359);
-                $this->ala('7', 353);
-                $this->ala('7', 299);
-                $this->ala('7', 293);
-                $this->ala('7', 239);
-                $this->ala('7', 233);
-                $this->ala('7', 179);
-                $this->ala('7', 173);
-                $this->ala('7', 119);
-                $this->ala('7', 113);
+                $this->ala(359, true);
+                $this->ala(353, true);
+                $this->ala(299, true);
+                $this->ala(293, true);
+                $this->ala(239, true);
+                $this->ala(233, true);
+                $this->ala(179, true);
+                $this->ala(173, true);
+                $this->ala(119, true);
+                $this->ala(113, true);
 
                 //八碼
-                $this->ala('8', 114);
-                $this->ala('8', 120);
-                $this->ala('8', 174);
-                $this->ala('8', 180);
-                $this->ala('8', 234);
-                $this->ala('8', 240);
-                $this->ala('8', 294);
-                $this->ala('8', 300);
-                $this->ala('8', 354);
-                $this->ala('8', 360);
+                $this->ala(114, true);
+                $this->ala(120, true);
+                $this->ala(174, true);
+                $this->ala(180, true);
+                $this->ala(234, true);
+                $this->ala(240, true);
+                $this->ala(294, true);
+                $this->ala(300, true);
+                $this->ala(354, true);
+                $this->ala(360, true);
 
                 $this->info('----------------------');
                 
-                sleep(30);
+                // 這裡寫開獎的地方
+                // for ($ii = 0; $ii < 999; $ii++) {
+                //     $url = 'http://luckyairyship.com/api/getwiningnumbers?random=0.46040559494045175';
+                //     $buffer = file($url);
+                //     $periodData = json_decode($buffer[0]);
+                //     $this->info($periodData->totalSeconds);
+                //     $number = null;
+                //     foreach ($periodData->numbersArray as $data) {
+                //         $number .= $data.', ';
+                //     }
+            
+                //     $period = $periodData->openingPeriodNumber;
+            
+                //     if (isset($nextPeriod) && $period == $nextPeriod) {
+                //         app(SlackNotify::class)->setMsg($period - 1 . ' - ' . $number)->notify();
+                //         continue;
+                //     }
+            
+                //     $nextPeriod = $period + 1;
+                // }
+                
                 $i--;
             } catch (\Exception $error) {
                 dd($error);
@@ -176,9 +196,25 @@ class notifyPotato extends Command
         }
     }
 
-    public function ala($type, $id)
+    private function getRank($id)
     {
-        $url    = 'http://www.97xyft.com/plan/?id=' . $id;
+        $url = "http://www.61xyft.com/plan/jh{$id}.html";
+        $buffer = file($url);
+        
+        $x = null;
+        foreach ($buffer as $v) {
+            $x .= $v;
+        }
+        
+        return explode('</h1></div>',explode('<div class="top-c"><h1>', $x)[1])[0];
+    }
+
+    public function ala($id, $五碼狀態 = false)
+    {
+        echo '.';
+        
+        $this->getRank($id);
+        $url    = 'http://www.61xyft.com/info-plan1/?id=' . $id;
         $buffer = file($url);
         
         $x = null;
@@ -200,17 +236,20 @@ class notifyPotato extends Command
         foreach ($c as $v) {
             $number .= $v . ', ';
         }
-
+        
         switch ($limit) {
             case '第4期':
-                $this->info("{$id} - {$type} - {$period} - {$limit} - {$number}");
+                // $this->info("{$limit} - i{$period} - {$this->getRank($id)} - {$number}");
                 break;
             case '第5期':
-                $this->info("{$id} - {$type} - {$period} - {$limit} - {$number}");
+                // $this->info("{$limit} - i{$period} - {$this->getRank($id)} - {$number}");
+                // if ($五碼狀態) {
+                //     $this->notifySlack("http://www.61xyft.com/plan/jh{$id}.html {$period} - {$this->getRank($id)} - {$number}");    
+                // }
                 break;
             case '第6期':
-                $this->info("{$id} - {$type} - {$period} - {$limit} - {$number}");
-                $this->notifySlack("http://www.61xyft.com/plan/jh{$id}.html {$type} - {$period} - {$limit} - {$number}");
+                $this->info("{$limit} - i{$period} - {$this->getRank($id)} - {$number}");
+                $this->notifySlack("http://www.61xyft.com/plan/jh{$id}.html {$period} - {$this->getRank($id)} - {$number}");
                 break;
         }
     }
